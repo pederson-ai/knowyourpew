@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="KnowYourPew icon">
+  <rect width="128" height="128" rx="28" fill="#172554"/>
+  <rect x="58" y="24" width="12" height="64" rx="6" fill="#fbbf24"/>
+  <rect x="36" y="46" width="56" height="12" rx="6" fill="#fbbf24"/>
+  <path d="M24 98c10-10 23-15 40-15s30 5 40 15" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,30 @@
+// KnowYourPew Prisma schema for SQLite
+// Schema: Submission + GiftScore with relations
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Submission {
+  id                Int         @id @default(autoincrement())
+  name              String
+  email             String
+  phone             String?
+  sundaySchoolClass String?
+  createdAt         DateTime    @default(now())
+  giftScores        GiftScore[]
+}
+
+model GiftScore {
+  id           Int        @id @default(autoincrement())
+  submission   Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  submissionId Int
+  giftKey      String
+  giftName     String
+  score        Int
+}

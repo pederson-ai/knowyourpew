@@ -1,0 +1,737 @@
+{
+  "gifts": {
+    "A": "Administration",
+    "B": "Apostleship",
+    "C": "Discernment",
+    "D": "Encouragement",
+    "E": "Evangelism",
+    "F": "Faith",
+    "G": "Giving",
+    "H": "Helps",
+    "I": "Hospitality",
+    "J": "Intercession",
+    "K": "Knowledge",
+    "L": "Leadership",
+    "M": "Mercy",
+    "N": "Prophecy",
+    "O": "Shepherding",
+    "P": "Teaching",
+    "Q": "Wisdom"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "text": "I like to organize people, tasks, and events.",
+      "category": "A",
+      "gift": "Administration"
+    },
+    {
+      "id": 2,
+      "text": "I would like to start churches in places where they do not presently exist.",
+      "category": "B",
+      "gift": "Apostleship"
+    },
+    {
+      "id": 3,
+      "text": "I can readily distinguish between spiritual truth and error, good and evil.",
+      "category": "C",
+      "gift": "Discernment"
+    },
+    {
+      "id": 4,
+      "text": "I tend to see the potential in people.",
+      "category": "D",
+      "gift": "Encouragement"
+    },
+    {
+      "id": 5,
+      "text": "I communicate the gospel to others with clarity and effectiveness.",
+      "category": "E",
+      "gift": "Evangelism"
+    },
+    {
+      "id": 6,
+      "text": "I find it natural and easy to trust God to answer my prayers.",
+      "category": "F",
+      "gift": "Faith"
+    },
+    {
+      "id": 7,
+      "text": "I give liberally and joyfully to people in financial need or to projects requiring support.",
+      "category": "G",
+      "gift": "Giving"
+    },
+    {
+      "id": 8,
+      "text": "I enjoy working behind the scenes to support the work of others.",
+      "category": "H",
+      "gift": "Helps"
+    },
+    {
+      "id": 9,
+      "text": "I view my home as a place to minister to people in need.",
+      "category": "I",
+      "gift": "Hospitality"
+    },
+    {
+      "id": 10,
+      "text": "I take prayer requests from others and consistently pray for them.",
+      "category": "J",
+      "gift": "Intercession"
+    },
+    {
+      "id": 11,
+      "text": "I am approached by people who want to know my perspective on a particular passage or biblical truth.",
+      "category": "K",
+      "gift": "Knowledge"
+    },
+    {
+      "id": 12,
+      "text": "I am able to motivate others to accomplish a goal.",
+      "category": "L",
+      "gift": "Leadership"
+    },
+    {
+      "id": 13,
+      "text": "I empathize with hurting people and desire to help in their healing process.",
+      "category": "M",
+      "gift": "Mercy"
+    },
+    {
+      "id": 14,
+      "text": "I can speak in a way that results in conviction and change in the lives of others.",
+      "category": "N",
+      "gift": "Prophecy"
+    },
+    {
+      "id": 15,
+      "text": "I enjoy spending time nurturing and caring for others.",
+      "category": "O",
+      "gift": "Shepherding"
+    },
+    {
+      "id": 16,
+      "text": "I am able to communicate God\u2019s Word effectively.",
+      "category": "P",
+      "gift": "Teaching"
+    },
+    {
+      "id": 17,
+      "text": "I am often sought out by others for advice about spiritual or personal matters.",
+      "category": "Q",
+      "gift": "Wisdom"
+    },
+    {
+      "id": 18,
+      "text": "I am careful, thorough, and skilled at managing details.",
+      "category": "A",
+      "gift": "Administration"
+    },
+    {
+      "id": 19,
+      "text": "I am attracted to the idea of serving in another country or ethnic community.",
+      "category": "B",
+      "gift": "Apostleship"
+    },
+    {
+      "id": 20,
+      "text": "I frequently am able to judge a person\u2019s character based upon first impressions.",
+      "category": "C",
+      "gift": "Discernment"
+    },
+    {
+      "id": 21,
+      "text": "I enjoy reassuring and strengthening those who are discouraged.",
+      "category": "D",
+      "gift": "Encouragement"
+    },
+    {
+      "id": 22,
+      "text": "I consistently look for opportunities to build relationships with non-Christians.",
+      "category": "E",
+      "gift": "Evangelism"
+    },
+    {
+      "id": 23,
+      "text": "I have confidence in God\u2019s continuing provision and help, even in difficult times.",
+      "category": "F",
+      "gift": "Faith"
+    },
+    {
+      "id": 24,
+      "text": "I give more than a tithe so that kingdom work can be accomplished.",
+      "category": "G",
+      "gift": "Giving"
+    },
+    {
+      "id": 25,
+      "text": "I enjoy doing routine tasks that support the ministry.",
+      "category": "H",
+      "gift": "Helps"
+    },
+    {
+      "id": 26,
+      "text": "I enjoy meeting new people and helping them feel welcomed.",
+      "category": "I",
+      "gift": "Hospitality"
+    },
+    {
+      "id": 27,
+      "text": "I enjoy praying for long periods of time and receive direction as to what God wants me to pray for.",
+      "category": "J",
+      "gift": "Intercession"
+    },
+    {
+      "id": 28,
+      "text": "I receive information from the Spirit that I did not acquire through natural means.",
+      "category": "K",
+      "gift": "Knowledge"
+    },
+    {
+      "id": 29,
+      "text": "I am able to influence others to achieve a vision.",
+      "category": "L",
+      "gift": "Leadership"
+    },
+    {
+      "id": 30,
+      "text": "I can patiently support those going through painful experiences as they try to stabilize their lives.",
+      "category": "M",
+      "gift": "Mercy"
+    },
+    {
+      "id": 31,
+      "text": "I feel responsible to confront others with the truth.",
+      "category": "N",
+      "gift": "Prophecy"
+    },
+    {
+      "id": 32,
+      "text": "I have compassion for wandering believers and want to protect them.",
+      "category": "O",
+      "gift": "Shepherding"
+    },
+    {
+      "id": 33,
+      "text": "I can spend time in study knowing that presenting truth will make a difference in the lives of people.",
+      "category": "P",
+      "gift": "Teaching"
+    },
+    {
+      "id": 34,
+      "text": "I can often find simple, practical solutions in the midst of conflict or confusion.",
+      "category": "Q",
+      "gift": "Wisdom"
+    },
+    {
+      "id": 35,
+      "text": "I can clarify goals and develop strategies or plans to accomplish them.",
+      "category": "A",
+      "gift": "Administration"
+    },
+    {
+      "id": 36,
+      "text": "I am willing to take an active part in starting a new church.",
+      "category": "B",
+      "gift": "Apostleship"
+    },
+    {
+      "id": 37,
+      "text": "I can see through phoniness or deceit before it is evident to others.",
+      "category": "C",
+      "gift": "Discernment"
+    },
+    {
+      "id": 38,
+      "text": "I give hope to others by directing them to the promises of God.",
+      "category": "D",
+      "gift": "Encouragement"
+    },
+    {
+      "id": 39,
+      "text": "I am effective at adapting the gospel message so that it connects with an individual\u2019s felt need.",
+      "category": "E",
+      "gift": "Evangelism"
+    },
+    {
+      "id": 40,
+      "text": "I believe that God will help me to accomplish great things.",
+      "category": "F",
+      "gift": "Faith"
+    },
+    {
+      "id": 41,
+      "text": "I manage my money well in order to free more of it for giving.",
+      "category": "G",
+      "gift": "Giving"
+    },
+    {
+      "id": 42,
+      "text": "I willingly take on a variety of odd jobs around the church to meet the needs of others.",
+      "category": "H",
+      "gift": "Helps"
+    },
+    {
+      "id": 43,
+      "text": "I genuinely believe the Lord directs strangers to me who need to get connected to others.",
+      "category": "I",
+      "gift": "Hospitality"
+    },
+    {
+      "id": 44,
+      "text": "I am conscious of ministering to others as I pray.",
+      "category": "J",
+      "gift": "Intercession"
+    },
+    {
+      "id": 45,
+      "text": "I am committed, and schedule blocks of time for reading and studying Scripture, to understand biblical truth fully and accurately.",
+      "category": "K",
+      "gift": "Knowledge"
+    },
+    {
+      "id": 46,
+      "text": "I can adjust my leadership style to bring out the best in others.",
+      "category": "L",
+      "gift": "Leadership"
+    },
+    {
+      "id": 47,
+      "text": "I enjoy helping people sometimes regarded as undeserving or beyond help.",
+      "category": "M",
+      "gift": "Mercy"
+    },
+    {
+      "id": 48,
+      "text": "I boldly expose cultural trends, teachings, or events, which contradict biblical principles.",
+      "category": "N",
+      "gift": "Prophecy"
+    },
+    {
+      "id": 49,
+      "text": "I like to provide guidance for the whole person \u2013relationally, emotionally, spiritually.",
+      "category": "O",
+      "gift": "Shepherding"
+    },
+    {
+      "id": 50,
+      "text": "I pay close attention to the words, phrases, and meaning of those who teach.",
+      "category": "P",
+      "gift": "Teaching"
+    },
+    {
+      "id": 51,
+      "text": "I can easily select the most effective course of action from among several alternatives.",
+      "category": "Q",
+      "gift": "Wisdom"
+    },
+    {
+      "id": 52,
+      "text": "I can identify and effectively use the resources needed to accomplish tasks.",
+      "category": "A",
+      "gift": "Administration"
+    },
+    {
+      "id": 53,
+      "text": "I can adapt well to different cultures and surroundings.",
+      "category": "B",
+      "gift": "Apostleship"
+    },
+    {
+      "id": 54,
+      "text": "I tend to see right or wrong in situations quickly and easily.",
+      "category": "C",
+      "gift": "Discernment"
+    },
+    {
+      "id": 55,
+      "text": "I reassure those who need to take courageous action in their faith, family, or life.",
+      "category": "D",
+      "gift": "Encouragement"
+    },
+    {
+      "id": 56,
+      "text": "I invite unbelievers to accept Christ as their Savior.",
+      "category": "E",
+      "gift": "Evangelism"
+    },
+    {
+      "id": 57,
+      "text": "I trust God in circumstances where success cannot be guaranteed by human effort alone.",
+      "category": "F",
+      "gift": "Faith"
+    },
+    {
+      "id": 58,
+      "text": "I am challenged to limit my life-style in order to give away a higher percentage of my income to God and/or others.",
+      "category": "G",
+      "gift": "Giving"
+    },
+    {
+      "id": 59,
+      "text": "I see spiritual significance in doing practical tasks.",
+      "category": "H",
+      "gift": "Helps"
+    },
+    {
+      "id": 60,
+      "text": "I like to create a place where people do not feel that they are alone.",
+      "category": "I",
+      "gift": "Hospitality"
+    },
+    {
+      "id": 61,
+      "text": "I pray with confidence because I know that God works in response to prayer.",
+      "category": "J",
+      "gift": "Intercession"
+    },
+    {
+      "id": 62,
+      "text": "I have insight or just know something to be true when others may not see it or believe it.",
+      "category": "K",
+      "gift": "Knowledge"
+    },
+    {
+      "id": 63,
+      "text": "I set goals to accomplish them and manage people and resources effectively.",
+      "category": "L",
+      "gift": "Leadership"
+    },
+    {
+      "id": 64,
+      "text": "I have great compassion for hurting people.",
+      "category": "M",
+      "gift": "Mercy"
+    },
+    {
+      "id": 65,
+      "text": "I see most actions as right or wrong, and feel the need to correct the wrong when I see it.",
+      "category": "N",
+      "gift": "Prophecy"
+    },
+    {
+      "id": 66,
+      "text": "I can faithfully provide long-term support and concern for others.",
+      "category": "O",
+      "gift": "Shepherding"
+    },
+    {
+      "id": 67,
+      "text": "I like to take a systematic approach to my study of the Bible.",
+      "category": "P",
+      "gift": "Teaching"
+    },
+    {
+      "id": 68,
+      "text": "I can anticipate the likely consequences of an individual\u2019s or a group\u2019s actions.",
+      "category": "Q",
+      "gift": "Wisdom"
+    },
+    {
+      "id": 69,
+      "text": "I like to help organizations or groups become more efficient or effective.",
+      "category": "A",
+      "gift": "Administration"
+    },
+    {
+      "id": 70,
+      "text": "I can relate to others in culturally sensitive ways.",
+      "category": "B",
+      "gift": "Apostleship"
+    },
+    {
+      "id": 71,
+      "text": "I receive affirmation from others concerning the reliability of my insights or perceptions.",
+      "category": "C",
+      "gift": "Discernment"
+    },
+    {
+      "id": 72,
+      "text": "I strengthen those who are wavering in their faith.",
+      "category": "D",
+      "gift": "Encouragement"
+    },
+    {
+      "id": 73,
+      "text": "I openly tell people that I am a Christian and want them to ask me about my faith.",
+      "category": "E",
+      "gift": "Evangelism"
+    },
+    {
+      "id": 74,
+      "text": "I am convinced of God\u2019s daily presence and action in my life.",
+      "category": "F",
+      "gift": "Faith"
+    },
+    {
+      "id": 75,
+      "text": "I like knowing that my financial support makes a real difference in the lives and ministries of God\u2019s people.",
+      "category": "G",
+      "gift": "Giving"
+    },
+    {
+      "id": 76,
+      "text": "I like to find small things that need to be done and often do them without being asked.",
+      "category": "H",
+      "gift": "Helps"
+    },
+    {
+      "id": 77,
+      "text": "I enjoy welcoming people and opening my home to others.",
+      "category": "I",
+      "gift": "Hospitality"
+    },
+    {
+      "id": 78,
+      "text": "When I hear about needy situations, I feel burdened to pray.",
+      "category": "J",
+      "gift": "Intercession"
+    },
+    {
+      "id": 79,
+      "text": "I have suddenly known some things about others, but did not know how I knew them.",
+      "category": "K",
+      "gift": "Knowledge"
+    },
+    {
+      "id": 80,
+      "text": "I influence others to perform to the best of their capability.",
+      "category": "L",
+      "gift": "Leadership"
+    },
+    {
+      "id": 81,
+      "text": "I can look beyond a person\u2019s handicaps or problems to see a life that matters to God.",
+      "category": "M",
+      "gift": "Mercy"
+    },
+    {
+      "id": 82,
+      "text": "I like people who are honest and will speak the truth.",
+      "category": "N",
+      "gift": "Prophecy"
+    },
+    {
+      "id": 83,
+      "text": "I enjoy giving guidance and practical support to a small group of people.",
+      "category": "O",
+      "gift": "Shepherding"
+    },
+    {
+      "id": 84,
+      "text": "I can communicate Scripture in ways that motivate others to study and want to learn more.",
+      "category": "P",
+      "gift": "Teaching"
+    },
+    {
+      "id": 85,
+      "text": "I give practical advice to help others through complicated situations.",
+      "category": "Q",
+      "gift": "Wisdom"
+    },
+    {
+      "id": 86,
+      "text": "I enjoy learning about how organizations function.",
+      "category": "A",
+      "gift": "Administration"
+    },
+    {
+      "id": 87,
+      "text": "I enjoy pioneering new undertakings.",
+      "category": "B",
+      "gift": "Apostleship"
+    },
+    {
+      "id": 88,
+      "text": "I can identify preaching, teaching, or communication which is not true to the Bible.",
+      "category": "C",
+      "gift": "Discernment"
+    },
+    {
+      "id": 89,
+      "text": "I like motivating others to take steps for spiritual growth.",
+      "category": "D",
+      "gift": "Encouragement"
+    },
+    {
+      "id": 90,
+      "text": "I openly and confidently tell others what God has done for me.",
+      "category": "E",
+      "gift": "Evangelism"
+    },
+    {
+      "id": 91,
+      "text": "I am regularly challenging others to trust God.",
+      "category": "F",
+      "gift": "Faith"
+    },
+    {
+      "id": 92,
+      "text": "I give generously due to my commitment to stewardship.",
+      "category": "G",
+      "gift": "Giving"
+    },
+    {
+      "id": 93,
+      "text": "I feel comfortable being a helper, assisting others to do their job more effectively.",
+      "category": "H",
+      "gift": "Helps"
+    },
+    {
+      "id": 94,
+      "text": "I do whatever I can to make people feel they belong.",
+      "category": "I",
+      "gift": "Hospitality"
+    },
+    {
+      "id": 95,
+      "text": "I am honored when someone asks me to pray for them.",
+      "category": "J",
+      "gift": "Intercession"
+    },
+    {
+      "id": 96,
+      "text": "I discover important biblical truths when reading or studying Scripture which benefit others in the body of Christ.",
+      "category": "K",
+      "gift": "Knowledge"
+    },
+    {
+      "id": 97,
+      "text": "I am able to cast a vision that others want to be a part of.",
+      "category": "L",
+      "gift": "Leadership"
+    },
+    {
+      "id": 98,
+      "text": "I enjoy bringing hope and joy to people living in difficult circumstances.",
+      "category": "M",
+      "gift": "Mercy"
+    },
+    {
+      "id": 99,
+      "text": "I will speak God\u2019s truth, even in places where it is unpopular or difficult for others to accept.",
+      "category": "N",
+      "gift": "Prophecy"
+    },
+    {
+      "id": 100,
+      "text": "I can gently restore wandering believers to faith and fellowship.",
+      "category": "O",
+      "gift": "Shepherding"
+    },
+    {
+      "id": 101,
+      "text": "I can present information and skills to others at a level that makes it easy for them to grasp and apply to their lives.",
+      "category": "P",
+      "gift": "Teaching"
+    },
+    {
+      "id": 102,
+      "text": "I can apply scriptural truth that others regard as practical and helpful.",
+      "category": "Q",
+      "gift": "Wisdom"
+    },
+    {
+      "id": 103,
+      "text": "I can visualize a coming event, anticipate potential problems, and develop backup plans.",
+      "category": "A",
+      "gift": "Administration"
+    },
+    {
+      "id": 104,
+      "text": "I am able to orchestrate or oversee several church ministries.",
+      "category": "B",
+      "gift": "Apostleship"
+    },
+    {
+      "id": 105,
+      "text": "I can sense when demonic forces are at work in a person or situation.",
+      "category": "C",
+      "gift": "Discernment"
+    },
+    {
+      "id": 106,
+      "text": "I am able to challenge or rebuke others in order to foster spiritual growth.",
+      "category": "D",
+      "gift": "Encouragement"
+    },
+    {
+      "id": 107,
+      "text": "I seek opportunities to talk about spiritual matters with unbelievers.",
+      "category": "E",
+      "gift": "Evangelism"
+    },
+    {
+      "id": 108,
+      "text": "I can move forward in spite of opposition or lack of support when I sense God\u2019s blessing on an undertaking.",
+      "category": "F",
+      "gift": "Faith"
+    },
+    {
+      "id": 109,
+      "text": "I believe I have been given an abundance of resources so that I may give more to the Lord\u2019s work.",
+      "category": "G",
+      "gift": "Giving"
+    },
+    {
+      "id": 110,
+      "text": "I readily and happily use my natural or learned skills to help wherever needed.",
+      "category": "H",
+      "gift": "Helps"
+    },
+    {
+      "id": 111,
+      "text": "I can make people feel at ease even in unfamiliar surroundings.",
+      "category": "I",
+      "gift": "Hospitality"
+    },
+    {
+      "id": 112,
+      "text": "I often see specific results in direct response to my prayers.",
+      "category": "J",
+      "gift": "Intercession"
+    },
+    {
+      "id": 113,
+      "text": "I confidently share my knowledge and insights with others.",
+      "category": "K",
+      "gift": "Knowledge"
+    },
+    {
+      "id": 114,
+      "text": "I figure out where we need to go and help others get there.",
+      "category": "L",
+      "gift": "Leadership"
+    },
+    {
+      "id": 115,
+      "text": "I enjoy doing practical things for others who are in need.",
+      "category": "M",
+      "gift": "Mercy"
+    },
+    {
+      "id": 116,
+      "text": "I feel compelled to expose sin wherever I see it and to challenge people to repentance.",
+      "category": "N",
+      "gift": "Prophecy"
+    },
+    {
+      "id": 117,
+      "text": "I enjoy nurturing others, patiently but firmly, in their development as believers.",
+      "category": "O",
+      "gift": "Shepherding"
+    },
+    {
+      "id": 118,
+      "text": "I enjoy explaining things to people so that they can grow spiritually and personally.",
+      "category": "P",
+      "gift": "Teaching"
+    },
+    {
+      "id": 119,
+      "text": "I have insights into how to solve problems that others do not see.",
+      "category": "Q",
+      "gift": "Wisdom"
+    }
+  ]
+}
