@@ -79,16 +79,18 @@ export default function Results({ answers, participant, onRestart }: ResultsProp
       setSaveState("saving");
       setSaveMessage("Saving your results for the church team.");
 
+      const payload = {
+        ...participant,
+        giftScores,
+      };
+
       try {
         const response = await fetch("/api/submissions", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            ...participant,
-            giftScores,
-          }),
+          body: JSON.stringify(payload),
         });
 
         if (!response.ok) {
@@ -100,9 +102,21 @@ export default function Results({ answers, participant, onRestart }: ResultsProp
           setSaveMessage("Saved successfully. You can print or email your results below.");
         }
       } catch {
+        try {
+          window.localStorage.setItem(
+            "knowyourpew-last-unsaved-submission",
+            JSON.stringify({
+              savedAt: new Date().toISOString(),
+              payload,
+            }),
+          );
+        } catch {
+          // Ignore local storage failures.
+        }
+
         if (!cancelled) {
           setSaveState("error");
-          setSaveMessage("Results are visible, but they could not be saved right now.");
+          setSaveMessage("Results are ready, but they could not be saved right now. You can still print or email them.");
         }
       }
     }
@@ -138,10 +152,10 @@ export default function Results({ answers, participant, onRestart }: ResultsProp
       }
 
       setEmailState("sent");
-      setEmailMessage(data.message || "Email summary prepared.");
+      setEmailMessage(data.message || "Email summary sent.");
     } catch (error) {
       setEmailState("error");
-      setEmailMessage(error instanceof Error ? error.message : "Unable to prepare the email summary.");
+      setEmailMessage(error instanceof Error ? error.message : "Unable to send the email summary.");
     }
   }
 

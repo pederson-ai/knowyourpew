@@ -13,9 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 const siteTitle = "KnowYourPew | Spiritual Gifts Assessment";
-const siteDescription = "A mobile-friendly spiritual gifts assessment for Woodridge Baptist Church. Discover your strongest spiritual gifts and how you can serve.";
+const siteDescription = "Discover your strongest spiritual gifts and how you can serve at Woodridge Baptist Church through a simple, mobile-friendly assessment.";
+const siteUrl = "https://knowyourpew.com";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: siteTitle,
   description: siteDescription,
   applicationName: "KnowYourPew",
@@ -24,23 +26,39 @@ export const metadata: Metadata = {
     "Woodridge Baptist Church",
     "church assessment",
     "spiritual gifts",
+    "KnowYourPew",
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: siteTitle,
     description: siteDescription,
     type: "website",
+    url: siteUrl,
     siteName: "KnowYourPew",
+    images: [
+      {
+        url: "/og-card.svg",
+        width: 1200,
+        height: 630,
+        alt: "KnowYourPew spiritual gifts assessment for Woodridge Baptist Church",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
+    images: ["/og-card.svg"],
   },
   icons: {
     icon: [
       { url: "/icon.svg", type: "image/svg+xml" },
       { url: "/favicon.ico" },
     ],
+    shortcut: ["/favicon.ico"],
+    apple: [{ url: "/icon.svg", type: "image/svg+xml" }],
   },
 };
 

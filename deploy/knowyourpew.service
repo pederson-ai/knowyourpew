@@ -1,0 +1,17 @@
+[Unit]
+Description=KnowYourPew Next.js app
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/knowyourpew
+Environment=NODE_ENV=production
+EnvironmentFile=/opt/knowyourpew/.env
+ExecStart=/usr/bin/npm run start -- --hostname 0.0.0.0 --port 3300
+Restart=always
+RestartSec=5
+User=www-data
+Group=www-data
+
+[Install]
+WantedBy=multi-user.target

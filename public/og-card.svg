@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="KnowYourPew">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#172554" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" rx="36" fill="url(#bg)" />
+  <rect x="72" y="70" width="350" height="60" rx="30" fill="#fbbf24" />
+  <text x="247" y="108" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#172554">Woodridge Baptist Church</text>
+  <text x="72" y="250" font-family="Arial, Helvetica, sans-serif" font-size="86" font-weight="800" fill="#ffffff">KnowYourPew</text>
+  <text x="72" y="320" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="600" fill="#fde68a">Spiritual Gifts Assessment</text>
+  <text x="72" y="390" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="#dbeafe">Discover how God may be wiring you to serve.</text>
+  <rect x="835" y="132" width="52" height="240" rx="26" fill="#fbbf24" />
+  <rect x="740" y="228" width="242" height="52" rx="26" fill="#fbbf24" />
+  <path d="M694 476c56-55 129-83 218-83s162 28 218 83" fill="none" stroke="#ffffff" stroke-width="36" stroke-linecap="round" />
+</svg>
