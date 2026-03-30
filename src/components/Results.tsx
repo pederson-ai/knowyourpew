@@ -61,6 +61,15 @@ function ConfettiBurst() {
   );
 }
 
+async function getErrorMessage(response: Response, fallback: string) {
+  try {
+    const data = (await response.json()) as { error?: string; message?: string };
+    return data.error || data.message || fallback;
+  } catch {
+    return fallback;
+  }
+}
+
 export default function Results({ answers, participant, onRestart }: ResultsProps) {
   const scored = useMemo(() => scoreAnswers(answers), [answers]);
   const topGifts = scored.slice(0, 5);
@@ -94,14 +103,14 @@ export default function Results({ answers, participant, onRestart }: ResultsProp
         });
 
         if (!response.ok) {
-          throw new Error("Unable to save submission");
+          throw new Error(await getErrorMessage(response, "Unable to save submission"));
         }
 
         if (!cancelled) {
           setSaveState("saved");
           setSaveMessage("Saved successfully. You can print or email your results below.");
         }
-      } catch {
+      } catch (error) {
         try {
           window.localStorage.setItem(
             "knowyourpew-last-unsaved-submission",
@@ -116,7 +125,7 @@ export default function Results({ answers, participant, onRestart }: ResultsProp
 
         if (!cancelled) {
           setSaveState("error");
-          setSaveMessage("Results are ready, but they could not be saved right now. You can still print or email them.");
+          setSaveMessage(error instanceof Error ? error.message : "Results are ready, but they could not be saved right now. You can still print or email them.");
         }
       }
     }
@@ -253,7 +262,7 @@ export default function Results({ answers, participant, onRestart }: ResultsProp
             return (
               <div key={gift} className="rounded-3xl border border-slate-200 bg-slate-50 p-4 shadow-sm print:break-inside-avoid print:bg-white">
                 <button
-                  className="flex w-full items-center justify-between gap-3 text-left"
+                  className="flex min-h-12 w-full items-center justify-between gap-3 text-left"
                   onClick={() => setOpen(open === gift ? null : gift)}
                 >
                   <div>
@@ -311,7 +320,7 @@ export default function Results({ answers, participant, onRestart }: ResultsProp
 
       <div className="flex flex-col gap-3 sm:flex-row print:hidden">
         <button
-          className="flex-1 rounded-2xl bg-blue-950 px-6 py-3 font-semibold text-white shadow transition hover:bg-blue-900"
+          className="flex-1 min-h-12 rounded-2xl bg-blue-950 px-6 py-3 font-semibold text-white shadow transition hover:bg-blue-900"
           onClick={onRestart}
         >
           Start Over
@@ -329,7 +338,7 @@ export default function Results({ answers, participant, onRestart }: ResultsProp
               window.print();
             }
           }}
-          className="flex-1 rounded-2xl border border-amber-300 bg-amber-50 px-6 py-3 font-semibold text-blue-950 transition hover:bg-amber-100"
+          className="flex-1 min-h-12 rounded-2xl border border-amber-300 bg-amber-50 px-6 py-3 font-semibold text-blue-950 transition hover:bg-amber-100"
         >
           Share Results
         </button>

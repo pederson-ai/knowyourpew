@@ -1,24 +1,63 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import assessment from "@/data/assessment.json";
 import ProgressBar from "./ProgressBar";
 import { groupQuestions } from "@/lib/scoring";
 
+interface ParticipantInfo {
+  name: string;
+  email: string;
+  phone: string;
+  sundaySchoolClass: string;
+}
+
 interface AssessmentProps {
   onComplete: (answers: Record<number, number>) => void;
   onProgressChange: (percentage: number) => void;
-  participantName: string;
+  participant: ParticipantInfo;
+  initialAnswers?: Record<number, number>;
+  initialPage?: number;
 }
 
 const QUESTIONS_PER_PAGE = 7;
+const STORAGE_KEY = "knowyourpew-assessment-state";
 const answerLabels = ["Not at all", "Some of the time", "Most of the time", "Consistently true"];
 
-export default function Assessment({ onComplete, onProgressChange, participantName }: AssessmentProps) {
+export default function Assessment({
+  onComplete,
+  onProgressChange,
+  participant,
+  initialAnswers,
+  initialPage = 0,
+}: AssessmentProps) {
   const sections = useMemo(() => groupQuestions(assessment.questions, QUESTIONS_PER_PAGE), []);
   const total = assessment.questions.length;
-  const [page, setPage] = useState(0);
-  const [answers, setAnswers] = useState<Record<number, number>>({});
+  const maxPage = sections.length - 1;
+  const [page, setPage] = useState(() => Math.min(Math.max(initialPage, 0), maxPage));
+  const [answers, setAnswers] = useState<Record<number, number>>(initialAnswers ?? {});
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [saveIndicatorVisible, setSaveIndicatorVisible] = useState(false);
+  const isHydratedRef = useRef(false);
+  const saveIndicatorTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    setAnswers(initialAnswers ?? {});
+  }, [initialAnswers]);
+
+  useEffect(() => {
+    setPage(Math.min(Math.max(initialPage, 0), maxPage));
+  }, [initialPage, maxPage]);
+
+  useEffect(() => {
+    isHydratedRef.current = true;
+
+    return () => {
+      if (saveIndicatorTimerRef.current) {
+        clearTimeout(saveIndicatorTimerRef.current);
+      }
+    };
+  }, []);
 
   const handleChange = (id: number, value: number) => {
     setAnswers((old) => ({ ...old, [id]: value }));
@@ -33,9 +72,48 @@ export default function Assessment({ onComplete, onProgressChange, participantNa
     onProgressChange(completionPercentage);
   }, [completionPercentage, onProgressChange]);
 
+  useEffect(() => {
+    if (!isHydratedRef.current) {
+      return;
+    }
+
+    try {
+      window.localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({
+          participant,
+          answers,
+          page,
+          savedAt: new Date().toISOString(),
+        }),
+      );
+
+      setSaveIndicatorVisible(true);
+      if (saveIndicatorTimerRef.current) {
+        clearTimeout(saveIndicatorTimerRef.current);
+      }
+      saveIndicatorTimerRef.current = setTimeout(() => {
+        setSaveIndicatorVisible(false);
+      }, 1600);
+    } catch {
+      // Ignore localStorage failures.
+    }
+  }, [answers, page, participant]);
+
   const goToPage = (nextPage: number) => {
-    setPage(nextPage);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const targetPage = Math.min(Math.max(nextPage, 0), maxPage);
+    if (targetPage === page) {
+      return;
+    }
+
+    setIsTransitioning(true);
+    window.setTimeout(() => {
+      setPage(targetPage);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.setTimeout(() => {
+        setIsTransitioning(false);
+      }, 120);
+    }, 120);
   };
 
   return (
@@ -44,27 +122,32 @@ export default function Assessment({ onComplete, onProgressChange, participantNa
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-500">Spiritual Gifts Assessment</p>
-            <h2 className="mt-2 text-2xl font-bold text-blue-950 sm:text-3xl">{participantName}, you&apos;re making good progress.</h2>
+            <h2 className="mt-2 text-2xl font-bold text-blue-950 sm:text-3xl">{participant.name}, you&apos;re making good progress.</h2>
             <p className="mt-2 text-sm text-slate-600 sm:text-base">Select the response that best matches each statement.</p>
           </div>
           <button
             type="button"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="inline-flex min-h-12 items-center justify-center rounded-2xl border border-blue-200 px-4 py-3 text-sm font-semibold text-blue-950 transition hover:bg-blue-50"
+            className="inline-flex min-h-12 items-center justify-center rounded-2xl border border-blue-200 px-4 py-3 text-sm font-semibold text-blue-950 transition hover:bg-blue-50 active:scale-[0.98]"
           >
             Back to top
           </button>
         </div>
         <div className="mt-4">
           <ProgressBar value={answeredCount} max={total} />
-          <div className="mt-2 flex items-center justify-between text-xs font-medium text-slate-500 sm:text-sm">
+          <div className="mt-2 flex flex-col gap-1 text-xs font-medium text-slate-500 sm:flex-row sm:items-center sm:justify-between sm:text-sm">
             <span>Section {page + 1} of {sections.length}</span>
-            <span>{answeredCount} of {total} answered · {completionPercentage}% complete</span>
+            <div className="flex items-center gap-3">
+              <span className={`transition-opacity duration-300 ${saveIndicatorVisible ? "opacity-100 text-emerald-600" : "opacity-0"}`} aria-live="polite">
+                Progress saved
+              </span>
+              <span>{answeredCount} of {total} answered · {completionPercentage}% complete</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <ul className="flex flex-col gap-4">
+      <ul className={`flex flex-col gap-4 transition-opacity duration-200 ${isTransitioning ? "opacity-0" : "opacity-100"}`}>
         {current.map((q) => (
           <li key={q.id} className="rounded-3xl border border-blue-100 bg-white p-4 shadow-md shadow-blue-100 sm:p-5">
             <div className="text-base font-semibold leading-7 text-blue-950 sm:text-lg">{q.text}</div>
@@ -74,7 +157,7 @@ export default function Assessment({ onComplete, onProgressChange, participantNa
                 return (
                   <label
                     key={value}
-                    className={`flex min-h-12 cursor-pointer items-center gap-3 rounded-2xl border px-4 py-3 text-left transition sm:min-h-14 ${
+                    className={`radio-option-label flex min-h-12 cursor-pointer items-center gap-3 rounded-2xl border px-4 py-3 text-left transition duration-150 active:scale-[0.99] sm:min-h-14 ${
                       checked
                         ? "border-blue-900 bg-blue-50 ring-2 ring-blue-100"
                         : "border-slate-200 bg-slate-50 hover:border-amber-300 hover:bg-amber-50"
@@ -104,7 +187,7 @@ export default function Assessment({ onComplete, onProgressChange, participantNa
 
       <div className="sticky bottom-3 z-20 flex gap-3 rounded-3xl border border-white/80 bg-white/95 p-3 shadow-xl shadow-blue-100 backdrop-blur sm:bottom-5 print:hidden">
         <button
-          className="flex min-h-12 flex-1 items-center justify-center rounded-2xl bg-slate-200 px-5 py-3 font-medium text-blue-950 transition hover:bg-slate-300 disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex min-h-12 flex-1 items-center justify-center rounded-2xl bg-slate-200 px-5 py-3 font-medium text-blue-950 transition hover:bg-slate-300 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50"
           onClick={() => goToPage(Math.max(0, page - 1))}
           disabled={page === 0}
         >
@@ -112,7 +195,7 @@ export default function Assessment({ onComplete, onProgressChange, participantNa
         </button>
         {page < sections.length - 1 ? (
           <button
-            className="flex min-h-12 flex-1 items-center justify-center rounded-2xl bg-blue-950 px-5 py-3 font-semibold text-white transition hover:bg-blue-900 disabled:cursor-not-allowed disabled:opacity-60"
+            className="flex min-h-14 flex-1 items-center justify-center rounded-2xl bg-blue-950 px-5 py-4 text-base font-semibold text-white shadow-lg shadow-blue-950/20 transition hover:bg-blue-900 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60 sm:min-h-12 sm:py-3"
             onClick={() => goToPage(Math.min(sections.length - 1, page + 1))}
             disabled={!allAnswered}
           >
@@ -120,7 +203,7 @@ export default function Assessment({ onComplete, onProgressChange, participantNa
           </button>
         ) : (
           <button
-            className="flex min-h-12 flex-1 items-center justify-center rounded-2xl bg-amber-400 px-5 py-3 font-semibold text-blue-950 transition hover:bg-amber-300 disabled:cursor-not-allowed disabled:opacity-60"
+            className="flex min-h-14 flex-1 items-center justify-center rounded-2xl bg-amber-400 px-5 py-4 text-base font-semibold text-blue-950 shadow-lg shadow-amber-300/40 transition hover:bg-amber-300 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60 sm:min-h-12 sm:py-3"
             onClick={() => onComplete(answers)}
             disabled={!allAnswered}
           >

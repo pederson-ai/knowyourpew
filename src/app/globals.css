@@ -39,6 +39,12 @@ textarea {
   font: inherit;
 }
 
+.radio-option-label,
+.radio-option-label * {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 @keyframes confetti-fall {
   0% {
     transform: translateY(-24px) rotate(0deg);
