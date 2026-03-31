@@ -49,7 +49,7 @@ export async function GET(request: Request) {
   });
 
   const header = ["Name", "Email", "Phone", "Sunday School Class", "Date", ...ALL_GIFT_NAMES];
-  const rows = submissions.map((submission) => {
+  const rows = submissions.map((submission: (typeof submissions)[number]) => {
     const scoreMap = buildGiftScoreMap(submission.giftScores);
 
     return [
@@ -63,7 +63,7 @@ export async function GET(request: Request) {
   });
 
   const csv = [header, ...rows]
-    .map((row) => row.map((cell) => escapeCsv(String(cell))).join(","))
+    .map((row: string[]) => row.map((cell: string) => escapeCsv(String(cell))).join(","))
     .join("\n");
 
   return new NextResponse(csv, {

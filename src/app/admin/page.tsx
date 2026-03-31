@@ -228,7 +228,7 @@ export default async function AdminPage({
                     </td>
                   </tr>
                 ) : (
-                  submissions.map((submission) => (
+                  submissions.map((submission: (typeof submissions)[number]) => (
                     <tr key={submission.id} className="align-top">
                       <td className="px-4 py-4 font-semibold text-blue-950">{submission.name}</td>
                       <td className="px-4 py-4 text-slate-700">{submission.email}</td>
